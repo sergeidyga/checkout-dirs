@@ -1,5 +1,8 @@
 name: 'checkout-dirs'
 description: 'Checkout specific directories'
+branding:
+  icon: 'git-branch'
+  color: 'white'
 
 inputs:
   dirs:
