@@ -1,19 +1,19 @@
-checkout-dir action
+checkout-dirs action
 ======================
 
-GitHub Action to checkout specific directory (instead of the whole repo).
+Minimalistic GitHub Action to checkout specific directories (instead of the whole repo).
 
 ## Usage
 ```yaml
-  - uses: sergeidyga/checkout-dir@v1
+  - uses: sergeidyga/checkout-dirs@v1
     with:
-      # Directory to checkout
+      # Space-separated directories to checkout
       # [required]
-      dir: ''
+      dirs: 'dir1 dir2'
       # Repository name
-      # [optional] | defaults to ${{ github.repository }}
+      # [optional] defaults to ${{ github.repository }}
       repository: ''
       # Ref to checkout
-      # [optional] | defaults to ${{ github.ref_name }}
+      # [optional] defaults to ${{ github.ref_name }}
       ref: ''
 ```
