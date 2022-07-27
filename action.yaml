@@ -21,5 +21,6 @@ runs:
       run: |
         git clone --depth 1 --filter=blob:none --sparse https://github.com/${{ inputs.repository }} temp-dir
         cd temp-dir
-        git sparse-checkout ${{ inputs.ref }} set ${{ inputs.dir }}
+        git checkout ${{ inputs.ref }}
+        git sparse-checkout set ${{ inputs.dir }}
       shell: bash
