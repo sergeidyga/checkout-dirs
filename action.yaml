@@ -19,8 +19,7 @@ runs:
   steps:
     - name: 'Checkout ${{ inputs.repository }}'
       run: |
-        git clone --depth 1 --filter=blob:none --sparse https://github.com/${{ inputs.repository }} temp-dir
-        cd temp-dir
+        git clone --depth 1 --filter=blob:none --sparse https://github.com/${{ inputs.repository }} .
         git checkout ${{ inputs.ref }}
         git sparse-checkout set ${{ inputs.dir }}
       shell: bash
