@@ -1,0 +1,25 @@
+name: 'checkout-dir'
+description: 'Checkout specific directory'
+
+inputs:
+  dir:
+    description: 'Directory to checkout'
+    required: true
+  repository:
+    description: 'Repository name'
+    required: false
+    default: ${{ github.repository }}
+  ref:
+    description: 'The ref to checkout'
+    required: true
+    default: ${{ github.ref_name }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: 'Checkout ${{ inputs.repository }}'
+      run: |
+        git clone --depth 1 --filter=blob:none --sparse https://github.com/${{ inputs.repository }}
+        cd ${{ inputs.repository }}
+        git sparse-checkout ${{ inputs.ref }} set ${{ inputs.dir }}
+      shell: bash
